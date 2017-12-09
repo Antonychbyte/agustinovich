@@ -1,2 +1,5 @@
-# agustinovich
-Commit.
+http://job4j.ru/index.html
+
+Цель - через полгода начать зарабатывать(максимум через год). 
+
+
