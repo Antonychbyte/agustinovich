@@ -10,8 +10,8 @@ public class Calculate {
 /**
 * Метод выводит на консоль текст "Hello world!"
 */	
-	public static void main (String [] args){		
-		System.out.println ("Hello world!");
+	public static void main(String[] args) {
+		System.out.println("Hello world!");
         }
 
 /**
@@ -19,7 +19,7 @@ public class Calculate {
 *@param name
 *@return Echo plus name
 */
-         public String echo (String name){
+         public String echo(String name) {
                 return "Echo, Echo, Echo : " + name;
          }
 }

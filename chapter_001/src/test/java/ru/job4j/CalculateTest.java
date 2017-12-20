@@ -11,13 +11,13 @@ import static org.junit.Assert.assertThat;
 *@version 1.0
 */
 
-public class CalculateTest{
+public class CalculateTest {
 
 /**
 *Test echo
 */
 @Test
-     public void whenTakeNameThenThreeEchoPlusName(){
+     public void whenTakeNameThenThreeEchoPlusName() {
 
             String input = "Vasya";
             String expect = "Echo, Echo, Echo : Vasya";
