@@ -10,61 +10,57 @@ import static org.junit.Assert.assertThat;
  *@author Густинович Антон (anton14024@yandex.ru)
  */
 
-public class CalculatorTest{
-
-    Calculator calc=new Calculator();
-    double result;
-    double expect;
+public class CalculatorTest {
 
     /**
      *Test add
-    */
+     */
     @Test
-    public void whenAddTwoPlusTwoThenFour(){
+    public void whenAddTwoPlusTwoThenFour() {
+        Calculator calc = new Calculator();
+        calc.add(2, 2);
+        double result = calc.getResult();
+        double expect = 4;
 
-           calc.add(2,2);
-           result=calc.getResult();
-           expect=4;
-
-           assertThat(result, is(expect));
+        assertThat(result, is(expect));
     }
 
     /**
-    *Test subtract
-    */
+     *Test subtract
+     */
     @Test
-    public void whenSubtractTwoMinusTwoThenZero(){
+    public void whenSubtractTwoMinusTwoThenZero() {
+        Calculator calc = new Calculator();
+        calc.subtract(2, 2);
+        double result = calc.getResult();
+        double expect = 0;
 
-           calc.subtract(2,2);
-           result=calc.getResult();
-           expect=0;
-
-           assertThat(result, is(expect));
+        assertThat(result, is(expect));
     }
 
-     /**
-    *Test multiple
-    */
+    /**
+     *Test multiple
+     */
     @Test
-    public void whenMultipleTwoMultiplyTwoThenFour(){
+    public void whenMultipleTwoMultiplyTwoThenFour() {
+        Calculator calc = new Calculator();
+        calc.multiple(2, 2);
+        double result = calc.getResult();
+        double expect = 4;
 
-           calc.multiple(2,2);
-           result=calc.getResult();
-           expect=4;
-
-           assertThat(result, is(expect));
+        assertThat(result, is(expect));
     }
 
-     /**
-    *Test div
-    */
+    /**
+     *Test div
+     */
     @Test
-    public void whenDivTwoDivideTwoThenOne(){
+    public void whenDivTwoDivideTwoThenOne() {
+        Calculator calc = new Calculator();
+        calc.div(2, 2);
+        double result = calc.getResult();
+        double expect = 1;
 
-           calc.div(2,2);
-           result=calc.getResult();
-           expect=1;
-
-           assertThat(result, is(expect));
+        assertThat(result, is(expect));
     }
 }
