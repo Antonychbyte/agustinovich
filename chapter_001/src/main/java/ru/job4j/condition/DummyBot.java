@@ -11,10 +11,9 @@ public class DummyBot {
 
         String answer = "Это ставит меня в тупик. Спросите другой вопрос.";
 
-        if (phrase.equals("Привет, Бот.")) {
+        if ("Привет, Бот.".equals(phrase)) {
             answer = "Привет, умник.";
-        } else
-        if (phrase.equals("Пока.")) {
+        } else if ("Пока.".equals(phrase)) {
             answer = "До скорой встречи.";
         }
         return answer;
