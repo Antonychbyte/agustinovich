@@ -15,21 +15,21 @@ public class MaxTest {
        public void whenFirstLessSecond() {
               Max maxObject = new Max();
 
-              assertThat(maxObject.max(-2, 1), is(1));
+              assertThat(maxObject.max(-2, 1 ), is(1));
        }
 
        @Test
        public void whenFirstMoreSecond() {
               Max maxObject = new Max();
 
-              assertThat(maxObject.max(2, -2), is(2));
+              assertThat(maxObject.max(2, -2, 1), is(2));
        }
 
        @Test
        public void whenFirstEqualsSecond() {
               Max maxObject = new Max();
 
-              assertThat(maxObject.max(0, 0), is(0));
+              assertThat(maxObject.max(0, 0, 0), is(0));
        }
 
 }
