@@ -15,7 +15,7 @@ public class MaxTest {
        public void whenFirstLessSecond() {
               Max maxObject = new Max();
 
-              assertThat(maxObject.max(-2, 1 ), is(1));
+              assertThat(maxObject.max(-2, 1), is(1));
        }
 
        @Test
