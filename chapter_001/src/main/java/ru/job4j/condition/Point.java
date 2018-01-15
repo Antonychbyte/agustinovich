@@ -14,9 +14,9 @@ public class Point {
 
     public double distance(Point b) {
 
-        Point a = this;
 
-        return Math.sqrt(Math.pow((b.x - a.x), 2) + Math.pow((b.y - a.y), 2));
+
+        return Math.sqrt(Math.pow((b.this.x - a.this.x), 2) + Math.pow((b.this.y - a.this.y), 2));
     }
 
     public static void main(String[] args) {
