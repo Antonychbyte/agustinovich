@@ -16,7 +16,7 @@ public class Point {
 
 
 
-        return Math.sqrt(Math.pow((b.this.x - a.this.x), 2) + Math.pow((b.this.y - a.this.y), 2));
+        return Math.sqrt(Math.pow((b.x - this.x), 2) + Math.pow((b.y - this.y), 2));
     }
 
     public static void main(String[] args) {
