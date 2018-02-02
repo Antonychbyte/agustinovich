@@ -9,34 +9,23 @@ import static java.util.Arrays.copyOf;
 
 public class ArrayDuplicate {
 
-    public  String[] remove(String[] array) {
+  public  String[] remove(String[] array) {
 
-        int tail = 0;
+    int tail = 0;
 
-        for (int out = 0; out < array.length - tail; out++) {
-
-            for (int in = out+1; in < array.length - tail; in++) {
-
-                if (array[out].equals(array[in])) {
-
-                    String tmp = array[in];
-
-                    array[in] = array[array.length - 1  - tail];
-
-                    array[array.length - 1 - tail] = tmp;
-
-                    in--;
-
-                    tail++;
-                }
-
-            }
-
+    for (int out = 0; out < array.length - tail; out++) {
+      for (int in = out+1; in < array.length - tail; in++) {
+         if (array[out].equals(array[in])) {
+          String tmp = array[in];
+          array[in] = array[array.length - 1  - tail];
+          array[array.length - 1 - tail] = tmp;
+          in--;
+          tail++;
         }
-        return copyOf(array, array.length - tail);
-
+      }
     }
-
+    return copyOf(array, array.length - tail);
+  }
 }
 
 

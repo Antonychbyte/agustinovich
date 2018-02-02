@@ -12,17 +12,14 @@ import static org.junit.Assert.assertThat;
 
 public class ArrayDuplicateTest {
 
-    @Test
-    public void whenRemoveDuplicatesThenArrayWithoutDuplicate() {
+  @Test
+  public void whenRemoveDuplicatesThenArrayWithoutDuplicate() {
 
-           ArrayDuplicate ad = new ArrayDuplicate();
+    ArrayDuplicate ad = new ArrayDuplicate();
+    String[] arTest = {"1", "1", "1", "2", "2", "2"};
+    String[] rsl = ad.remove(arTest);
+    String[] expect = {"1", "2"};
 
-           String[] arTest = {"1", "1", "1", "2", "2", "2"};
-
-           String[] rsl = ad.remove(arTest);
-
-           String[] expect = {"1", "2"};
-
-           assertThat(rsl, arrayContainingInAnyOrder(expect));
-    }
+    assertThat(rsl, arrayContainingInAnyOrder(expect));
+  }
 }
