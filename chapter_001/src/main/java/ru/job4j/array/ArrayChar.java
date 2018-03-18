@@ -1,6 +1,5 @@
 package ru.job4j.array;
 
-import java.util.Arrays;
 /**
  * class ArrayChar - решение задачи "5.5. Слово начинается с ... [#41585]"
  *@author Густинович Антон (anton14024@yandex.ru)
@@ -23,13 +22,11 @@ public class ArrayChar {
     boolean result = true;
     char[] value = prefix.toCharArray();
 
-    // for (char index = 0; index <= value.length - 1; index++) {  возможен выход за границу массива
-    //   if (data[index] != value[index]) {
-    //     result = false;
-    //   }
-    //  }
-    //  return result;
-
-    return Arrays.equals(value, Arrays.copyOf(data, value.length));
+    for (char index = 0; index <= value.length - 1; index++) {
+      if (data[index] != value[index]) {
+        result = false;
+      }
+    }
+    return result;
   }
 }
