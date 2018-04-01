@@ -17,15 +17,13 @@ class SubInString {
     char[] o = origin.toCharArray();
     char[] s = sub.toCharArray();
     boolean result = true;
-
-    int indOrigin = 0;
+    int indOrig = 0;
     int point;
     int indSub;
-
-    while (o[indOrigin] != s[0]) {
-      indOrigin++;
+    while (o[indOrig] != s[0]) {
+      indOrig++;
     }
-    for (point = indOrigin, indSub = 0; indSub <= s.length - 1; point++, indSub++) {
+    for (point = indOrig, indSub = 0; indSub <= s.length - 1; point++, indSub++) {
       if (o[point] != s[indSub]) {
         result = false;
         break;

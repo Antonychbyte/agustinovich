@@ -17,7 +17,6 @@ public class SubInStringTest {
     String sub = "иве";
     boolean expect = true;
     boolean result = subInString.contains(origin, sub);
-
     assertThat(result, is(expect));
   }
 }
