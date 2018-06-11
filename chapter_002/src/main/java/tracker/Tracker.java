@@ -17,12 +17,14 @@ class Tracker {
   }
   public void add(Item item) {
     item.setId(this.generateId());
+    item.setCreated(System.currentTimeMillis());
     this.items[this.position++] = item;
   }
   public void replace(String id, Item item) {
     for (int index = 0; index <= this.position - 1; index++) {
       if (this.items[index].getId().equals(id)) {
         item.setId(this.items[index].getId());
+        item.setCreated(System.currentTimeMillis());
         this.items[index] = item;
         break;
       }

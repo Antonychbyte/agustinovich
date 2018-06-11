@@ -7,12 +7,13 @@ public class Item {
   private String desc;
   private String comments;
   private long created;
-
-  public Item() {
-
-  }
-  public Item(String name) {
+ public Item(String name){
+   this.setName(name);
+ }
+ public Item(String name, String desc, String comments) {
     this.setName(name);
+    this.setDesc(desc);
+    this.setComments(comments);
   }
 
   public void setId(String id) {
