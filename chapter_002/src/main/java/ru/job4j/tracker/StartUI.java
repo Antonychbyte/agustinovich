@@ -13,7 +13,7 @@ public class StartUI {
   private final Input input;
   private final Tracker tracker;
 
-  public StartUI(Input input, Tracker tracker) {
+ public StartUI(Input input, Tracker tracker) {
     this.input = input;
     this.tracker = tracker;
   }
@@ -40,7 +40,7 @@ public class StartUI {
       }
     }
   }
-  public void printMenu() {
+  private void printMenu() {
     System.out.println("Menu");
     System.out.println(ADD + ". Add new Item");
     System.out.println(SHOWALL + ". Show all items");
@@ -51,7 +51,7 @@ public class StartUI {
     System.out.println(EXIT + ". Exit Program");
     System.out.print("Select:");
   }
-  public void createItem() {
+  private void createItem() {
     System.out.println("----------Создание новой заявки---------");
     String name = input.ask("введите имя:");
     String desc = input.ask("введите описание заявки:");
@@ -60,14 +60,14 @@ public class StartUI {
     tracker.add(item);
     System.out.println("-------Новая заявка с ID:" + item.getId() + " создана.---------");
   }
-  public void showAll() {
+  private void showAll() {
     System.out.println("Список всех заявок:");
     Item[] list = tracker.findAll();
     for (Item item : list) {
       System.out.println(item.getId() + "___" + item.getName());
     }
   }
-  public void editItem() {
+  private void editItem() {
     System.out.println("----------Редактирование заявки----------");
     String id = input.ask("введите ID заявки:");
     System.out.println("создание заявки с уточненными данными");
@@ -78,13 +78,13 @@ public class StartUI {
     tracker.replace(id, item);
     System.out.println("внесены изменения в заявку с ID " + item.getId());
   }
-  public void delete() {
+  private void delete() {
     System.out.println("----------Удаление заявки--------");
     String id = input.ask("введите ID заявки, которую нужно удалить:");
     tracker.delete(id);
     System.out.println("Заявка удалена");
   }
-  public void findById() {
+  private void findById() {
     System.out.println("----------Поиск заявки по ID----------");
     String id = input.ask("введите ID заявки:");
     Item item = tracker.findById(id);
@@ -93,7 +93,7 @@ public class StartUI {
     System.out.println("Описание: " + item.getDesc());
     System.out.println("Коментарий: " + item.getComments());
   }
-  public void findByName() {
+  private void findByName() {
     System.out.println("------- Поиск заявки по имени------");
     String name = input.ask("Введите имя: ");
     Item[] items = tracker.findByName(name);
