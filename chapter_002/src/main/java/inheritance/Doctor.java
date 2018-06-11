@@ -2,6 +2,7 @@ package inheritance;
 
 public class Doctor extends Professions {
 
-  public void heal(Patient patient){
+  public Diagnose heal(Patient patient) {
+    return new Diagnose();
   }
 }

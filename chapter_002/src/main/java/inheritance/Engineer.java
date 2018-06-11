@@ -1,7 +1,7 @@
 package inheritance;
 
-public class Engineer extends Professions{
-  public void build(House house){
+public class Engineer extends Professions {
+  public void build(House house) {
 
   }
 }
