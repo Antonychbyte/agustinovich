@@ -13,7 +13,7 @@ public class StartUI {
   private final Input input;
   private final Tracker tracker;
 
- public StartUI(Input input, Tracker tracker) {
+  public StartUI(Input input, Tracker tracker) {
     this.input = input;
     this.tracker = tracker;
   }
@@ -49,7 +49,7 @@ public class StartUI {
     System.out.println(FINDBYID + ". Find item by Id");
     System.out.println(FINDBYNAME + ". Find items by name");
     System.out.println(EXIT + ". Exit Program");
-    System.out.print("Select:");
+    System.out.println("Select:");
   }
   private void createItem() {
     System.out.println("----------Создание новой заявки---------");
