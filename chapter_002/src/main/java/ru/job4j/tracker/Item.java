@@ -10,7 +10,7 @@ public class Item {
  public Item(String name) {
    this.setName(name);
  }
- public Item(String name, String desc, String comments) {
+ public Item(String name, String desc) {
     this.setName(name);
     this.setDesc(desc);
     this.setComments(comments);

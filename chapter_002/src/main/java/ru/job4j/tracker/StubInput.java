@@ -9,6 +9,7 @@ public class StubInput implements Input {
     this.answers = answers;
   }
   public String ask(String question) {
+    System.out.println(question);
     return answers[position++];
   }
 }
