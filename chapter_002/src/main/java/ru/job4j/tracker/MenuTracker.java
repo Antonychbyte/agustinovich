@@ -5,12 +5,15 @@ public class MenuTracker {
   private Input input;
   private Tracker tracker;
   private UserAction[] actions = new UserAction[7];
-
+  public MenuTracker() {
+   }
   public MenuTracker(Input input, Tracker tracker) {
     this.input = input;
     this.tracker = tracker;
   }
-
+  int lengthAction() {
+    return this.actions.length;
+  }
   public void fillActions() {
     this.actions[0] = new AddItem();
     this.actions[1] = new ShowAllItems();

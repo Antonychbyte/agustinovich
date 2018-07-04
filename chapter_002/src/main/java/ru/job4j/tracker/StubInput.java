@@ -8,8 +8,12 @@ public class StubInput implements Input {
   public StubInput(String[] answers) {
     this.answers = answers;
   }
+
   public String ask(String question) {
     System.out.println(question);
     return answers[position++];
+  }
+  public int ask(String question, int[] range) {
+    return -1;
   }
 }
