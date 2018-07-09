@@ -1,7 +1,7 @@
 package ru.job4j.tracker;
 
-public class MenuOutExeption extends RuntimeException {
-  public MenuOutExeption(String message) {
+public class MenuOutException extends RuntimeException {
+  public MenuOutException(String message) {
     super(message);
   }
 }
