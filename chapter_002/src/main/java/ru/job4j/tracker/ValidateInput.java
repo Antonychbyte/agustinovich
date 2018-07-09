@@ -22,14 +22,14 @@ public class ValidateInput implements Input {
         invalid = false;
       } catch (NumberFormatException nfe) {
         System.out.println("при вводе пункта меню используйте только цифры");
-        menu.fillActions();
-        menu.showMenu();
-      } catch (MenuOutExeption menuOutExeption) {
+
+      } catch (MenuOutException menuOutException) {
         System.out.println("выберите пункт меню");
+      }
+      if (invalid) {
         menu.fillActions();
         menu.showMenu();
       }
-
     } while (invalid);
     return userInput;
   }
