@@ -23,19 +23,19 @@ public class BishopBlack implements Figure {
   public Cell[] way(Cell source, Cell dest) throws ImpossibleMoveException {
     int difX = dest.x - source.x;
     int difY = dest.y - source.y;
-    Cell[] steps = new Cell[Math.abs(difX)];
     if (difX == 0 || difY == 0 || Math.abs(difX) != Math.abs(difY)) {
       throw new ImpossibleMoveException("Impossible move");
-    } else {
-      for (int index = 0; index < steps.length; index++) {
-        for (Cell cell : Cell.values()) {
-          if (cell.x == source.x + difX && cell.y == difY + source.y) {
-            steps[index] = cell;
-          }
+    }
+    Cell[] steps = new Cell[Math.abs(difX)];
+    for (int index = 0; index < steps.length; index++) {
+      for (Cell cell : Cell.values()) {
+        if (cell.x == source.x + difX && cell.y == difY + source.y) {
+          steps[index] = cell;
+          break;
         }
-        difX = difX > 0 ? --difX : ++difX;
-        difY = difY > 0 ? --difY : ++difY;
       }
+      difX = difX > 0 ? --difX : ++difX;
+      difY = difY > 0 ? --difY : ++difY;
     }
     return steps;
   }

@@ -1,12 +1,11 @@
 package ru.job4j.chess;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
-import ru.job4j.chess.exceptions.ChessExceptions;
+import ru.job4j.chess.exceptions.OccupiedWayException;
 import ru.job4j.chess.figures.Cell;
 import ru.job4j.chess.figures.black.BishopBlack;
 import ru.job4j.chess.figures.black.PawnBlack;
@@ -23,21 +22,12 @@ public class LogicTest {
   }
   @Test
   public void whenPathIsClear() {
-    try {
-      assertThat(logic.move(Cell.C1, Cell.A3), is(true));
-    } catch (ChessExceptions ce) {
-      System.out.println(ce.getMessage());
-      Assert.fail();
-    }
-  }
-  @Test
-  public void whenPathIsOccupied() {
-    try {
-      assertThat(logic.move(Cell.C1, Cell.E3), is(false));
-    } catch (ChessExceptions ce) {
-      System.out.println(ce.getMessage());
-    }
+    assertThat(logic.move(Cell.C1, Cell.A3), is(true));
   }
 
+  @Test(expected = OccupiedWayException.class)
+  public void whenPathIsOccupied() {
+    assertThat(logic.move(Cell.C1, Cell.E3), is(true));
+  }
 }
 

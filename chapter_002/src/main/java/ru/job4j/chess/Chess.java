@@ -12,7 +12,8 @@ import javafx.application.Application;
     import javafx.scene.paint.ImagePattern;
     import javafx.scene.shape.Rectangle;
     import javafx.stage.Stage;
-    import ru.job4j.chess.figures.Cell;
+import ru.job4j.chess.exceptions.ChessExceptions;
+import ru.job4j.chess.figures.Cell;
     import ru.job4j.chess.figures.Figure;
     import ru.job4j.chess.figures.black.*;
     import ru.job4j.chess.figures.white.*;
@@ -64,8 +65,8 @@ public class Chess extends Application {
             logic.move(this.findBy(momento.getX(), momento.getY()), this.findBy(event.getX(), event.getY()));
             rect.setX(((int) event.getX() / 40) * 40 + 5);
             rect.setY(((int) event.getY() / 40) * 40 + 5);
-          } catch (Exception e) {
-            e.printStackTrace();
+          } catch (ChessExceptions ce) {
+            ce.printStackTrace();
             rect.setX(((int) momento.getX() / 40) * 40 + 5);
             rect.setY(((int) momento.getY() / 40) * 40 + 5);
           }

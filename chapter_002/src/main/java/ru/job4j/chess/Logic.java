@@ -28,24 +28,20 @@ public class Logic {
    */
   public boolean move(Cell source, Cell dest)
     throws FigureNotFoundException, OccupiedWayException, ImpossibleMoveException {
-    boolean result = false;
     int index = this.findBy(source);
     if (index == -1) {
       throw new FigureNotFoundException("Figure not found");
-    } else {
+    }
     Cell[] steps = this.figures[index].way(source, dest);
     for (Cell step : steps) {
       for (int i = 0; i < this.index; i++) {
         if ((step.equals(this.figures[i].position()))) {
           throw new OccupiedWayException("Occupied way");
-        } else {
-        result = true;
         }
       }
     }
     this.figures[index] = this.figures[index].copy(dest);
-    return result;
-    }
+    return true;
   }
   /**
    * @param cell
