@@ -10,28 +10,28 @@ import ru.job4j.chess.figures.black.BishopBlack;
 public class BishopBlackTest {
 
   @Test
-  public void bishopGoesA1_H8() {
+  public void whenBishopBlackA1H8() {
     BishopBlack bishop = new BishopBlack(Cell.A1);
     Cell[] actual = bishop.way(bishop.position(), Cell.H8);
     Cell[] expected = {Cell.H8, Cell.G7, Cell.F6, Cell.E5, Cell.D4, Cell.C3, Cell.B2};
     assertThat(actual, is(expected));
   }
   @Test
-  public void bishopGoesH8_A1() {
+  public void whenBishopBlackH8A1() {
     BishopBlack bishop = new BishopBlack(Cell.H8);
     Cell[] actual = bishop.way(bishop.position(), Cell.A1);
-    Cell[] expected = {Cell.A1,Cell.B2, Cell.C3, Cell.D4, Cell.E5, Cell.F6, Cell.G7};
+    Cell[] expected = {Cell.A1, Cell.B2, Cell.C3, Cell.D4, Cell.E5, Cell.F6, Cell.G7};
     assertThat(actual, is(expected));
   }
   @Test
-  public void bishopGoesA8_H1() {
+  public void whenBishopBlackA8H1() {
     BishopBlack bishop = new BishopBlack(Cell.A8);
     Cell[] actual = bishop.way(bishop.position(), Cell.H1);
     Cell[] expected = {Cell.H1, Cell.G2, Cell.F3, Cell.E4, Cell.D5, Cell.C6, Cell.B7};
     assertThat(actual, is(expected));
   }
   @Test
-  public void bishopGoesH1_A8() {
+  public void whenBishopBlackH1A8() {
     BishopBlack bishop = new BishopBlack(Cell.H1);
     Cell[] actual = bishop.way(bishop.position(), Cell.A8);
     Cell[] expected = {Cell.A8, Cell.B7, Cell.C6, Cell.D5, Cell.E4, Cell.F3, Cell.G2};
@@ -40,9 +40,9 @@ public class BishopBlackTest {
 
 
   @Test(expected = ImpossibleMoveException.class)
-  public void whenImpossibleMoveException() {
+  public void whenBishopBlackF8A2ThenImpossibleMoveException() {
     BishopBlack bishopBlack = new BishopBlack(Cell.F8);
-    Cell[] expect = {Cell.A7, Cell.B6, Cell.C5};
-    assertThat(bishopBlack.way(Cell.D4, Cell.A6), is(expect));
+    Cell[] expect = {Cell.E7, Cell.D6, Cell.C5, Cell.B4, Cell.A3};
+    assertThat(bishopBlack.way(bishopBlack.position(), Cell.A2), is(expect));
   }
 }

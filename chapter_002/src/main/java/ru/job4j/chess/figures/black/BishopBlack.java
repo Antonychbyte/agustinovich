@@ -1,6 +1,7 @@
 package ru.job4j.chess.figures.black;
 
 import ru.job4j.chess.figures.Cell;
+import ru.job4j.chess.figures.directions.Diagonal;
 import ru.job4j.chess.figures.Figure;
 import ru.job4j.chess.exceptions.ImpossibleMoveException;
 /**
@@ -8,17 +9,16 @@ import ru.job4j.chess.exceptions.ImpossibleMoveException;
  * @author  Густинович Антон (anton14024@yandex.ru)
  */
 public class BishopBlack implements Figure {
+
   private final Cell position;
 
   public BishopBlack(final Cell position) {
     this.position = position;
   }
-
   @Override
   public Cell position() {
     return this.position;
   }
-
   @Override
   public Cell[] way(Cell source, Cell dest) throws ImpossibleMoveException {
     int difX = dest.x - source.x;
@@ -26,18 +26,7 @@ public class BishopBlack implements Figure {
     if (difX == 0 || difY == 0 || Math.abs(difX) != Math.abs(difY)) {
       throw new ImpossibleMoveException("Impossible move");
     }
-    Cell[] steps = new Cell[Math.abs(difX)];
-    for (int index = 0; index < steps.length; index++) {
-      for (Cell cell : Cell.values()) {
-        if (cell.x == source.x + difX && cell.y == difY + source.y) {
-          steps[index] = cell;
-          break;
-        }
-      }
-      difX = difX > 0 ? --difX : ++difX;
-      difY = difY > 0 ? --difY : ++difY;
-    }
-    return steps;
+   return new Diagonal().cellsArray(source, difX, difY);
   }
   @Override
   public Figure copy(Cell dest) {
