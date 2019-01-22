@@ -19,7 +19,5 @@ public class PriorityQueueTest {
     pq.put(new Task("2", 2));
 
     assertThat(pq.take().getPriority(), is(1));
-
-
   }
 }
