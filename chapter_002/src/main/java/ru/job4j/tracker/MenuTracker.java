@@ -1,5 +1,7 @@
 package ru.job4j.tracker;
 
+import java.util.ArrayList;
+
 public class MenuTracker {
 
   private Input input;
@@ -99,7 +101,7 @@ public class MenuTracker {
     public void execute(Input input, Tracker tracker) {
       System.out.println("------- Поиск заявки по имени------");
       String name = input.ask("Введите имя:");
-      Item[] items = tracker.findByName(name);
+      ArrayList<Item> items = tracker.findByName(name);
       for (Item item : items) {
         System.out.println(String.format("%s%s%s", item.getId(), "___", item.getName()));
       }

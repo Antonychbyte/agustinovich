@@ -31,11 +31,11 @@ public class StartUITest {
       .toString();
 
   @Test
-  public void whenAddTnenTrackerHasItemWithSameName() {
+  public void whenAddThenTrackerHasItemWithSameName() {
     Input input = new StubInput(new String[]{"1", "name", "desc", "7"});
     Tracker tracker = new Tracker();
     new StartUI(input, tracker).init();
-    assertThat(tracker.getItems()[0].getName(), is("name"));
+    assertThat(tracker.getItems().get(0).getName(), is("name"));
   }
 
   @Test
@@ -43,9 +43,9 @@ public class StartUITest {
     Item item = new Item("name");
     Tracker tracker = new Tracker();
     tracker.add(item);
-    Input input = new StubInput(new String[]{"3", tracker.getItems()[0].getId(), "newName", "desc", "7"});
+    Input input = new StubInput(new String[]{"3", tracker.getItems().get(0).getId(), "newName", "desc", "7"});
     new StartUI(input, tracker).init();
-    assertThat(tracker.getItems()[0].getName(), is("newName"));
+    assertThat(tracker.getItems().get(0).getName(), is("newName"));
   }
 
   @Test
@@ -53,9 +53,10 @@ public class StartUITest {
     Item item = new Item("1");
     Tracker tracker = new Tracker();
     tracker.add(item);
-    Input input = new StubInput(new String[]{"4", tracker.getItems()[0].getId(), "7"});
+    Input input = new StubInput(new String[]{"4", tracker.getItems().get(0).getId(), "7"});
     new StartUI(input, tracker).init();
-    assertThat(tracker.findAll().length, is(0));
+
+    assertThat(tracker.getItems().isEmpty(), is(true));
   }
 
   @Before
