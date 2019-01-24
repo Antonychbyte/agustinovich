@@ -1,11 +1,10 @@
 package ru.job4j.tracker;
 
 import org.junit.Test;
-
-import java.util.ArrayList;
-
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
+import java.util.ArrayList;
+import java.util.List;
 /**
  *class TrackerTest - решение задачи "2. Реализовать класс Tracker [#396]"
  * @author Густинович Антон (anton14024@yandex.ru)
@@ -45,7 +44,7 @@ public class TrackerTest {
   public void whenFindAllThenReturnWithoutNull() {
     Item first = new Item("first");
     Item second = new Item("second");
-    ArrayList<Item> expect = new ArrayList<>();
+    List<Item> expect = new ArrayList<>();
     expect.add(first);
     expect.add(second);
     Tracker tracker = new Tracker();
@@ -63,7 +62,7 @@ public class TrackerTest {
     tracker.add(first);
     tracker.add(second);
     tracker.add(third);
-ArrayList<Item> expect = new ArrayList<>();
+    List<Item> expect = new ArrayList<>();
     expect.add(first);
     expect.add(third);
     assertThat(tracker.findByName("1"), is(expect));

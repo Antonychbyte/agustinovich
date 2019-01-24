@@ -1,6 +1,7 @@
 package ru.job4j.tracker;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -9,10 +10,10 @@ import java.util.Random;
  */
 class Tracker {
 
-  private final ArrayList<Item> items = new ArrayList<>();
+  private final List<Item> items = new ArrayList<>();
   private final static Random RN = new Random();
 
-  public ArrayList<Item> getItems() {
+  public List<Item> getItems() {
     return this.items;
   }
   public void add(Item item) {
@@ -21,29 +22,20 @@ class Tracker {
     this.items.add(item);
   }
   public void replace(String id, Item item) {
-    for (Item element : this.items) {
-      if (element.getId().equals(id)) {
-        item.setId(id);
-        item.setCreated(System.currentTimeMillis());
-        this.items.set(this.items.indexOf(element), item);
-      }
-    }
+    item.setId(id);
+    item.setCreated(System.currentTimeMillis());
+    this.items.set(this.items.indexOf(this.findById(id)), item);
   }
   public void delete(String id) {
-    for (Item element : this.items) {
-      if (element.getId().equals(id)) {
-        this.items.remove(this.items.indexOf(element));
-        break;
-      }
-    }
+    this.items.remove(this.findById(id));
   }
-  public ArrayList<Item> findAll() {
-    ArrayList<Item> result = new ArrayList<>();
+  public List<Item> findAll() {
+    List<Item> result = new ArrayList<>();
     result.addAll(this.items);
     return result;
   }
-  public ArrayList<Item> findByName(String key) {
-    ArrayList<Item> result = new ArrayList<>();
+  public List<Item> findByName(String key) {
+    List<Item> result = new ArrayList<>();
     for (Item element : this.items) {
       if (element.getName().equals(key)) {
         result.add(element);
