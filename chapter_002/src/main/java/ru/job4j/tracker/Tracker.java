@@ -24,15 +24,13 @@ class Tracker {
   public void replace(String id, Item item) {
     item.setId(id);
     item.setCreated(System.currentTimeMillis());
-    this.items.set(this.items.indexOf(this.findById(id)), item);
+    this.items.set(this.position(id), item);
   }
   public void delete(String id) {
-    this.items.remove(this.findById(id));
+    this.items.remove(this.position(id));
   }
   public List<Item> findAll() {
-    List<Item> result = new ArrayList<>();
-    result.addAll(this.items);
-    return result;
+    return getItems();
   }
   public List<Item> findByName(String key) {
     List<Item> result = new ArrayList<>();
@@ -52,6 +50,16 @@ class Tracker {
       }
     }
     return result;
+  }
+  private int position(String id) {
+    int index = 0;
+    for (Item item : this.items) {
+      if (item.getId().equals(id)) {
+        break;
+      }
+      index++;
+    }
+    return index;
   }
   private String generateId() {
     StringBuilder id = new StringBuilder();
