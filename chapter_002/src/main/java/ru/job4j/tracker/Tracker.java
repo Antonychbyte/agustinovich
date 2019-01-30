@@ -19,33 +19,21 @@ class Tracker {
     item.setCreated(System.currentTimeMillis());
     this.items.add(item);
   }
-  public boolean replace(String id, Item newItem) {
-    boolean result = false;
-    newItem.setId(id);
-    newItem.setCreated(System.currentTimeMillis());
-    ListIterator<Item> iterator = this.items.listIterator();
-    while (iterator.hasNext()) {
-      Item next = iterator.next();
-      if (next.getId().equals(newItem.getId())) {
-        iterator.set(newItem);
-        result = true;
+  public void replace(String id, Item newItem) {
+    for (int index = 0; index < this.items.size(); index++) {
+      if(this.items.get(index).getId().equals(id)) {
+        this.items.set(index, newItem);
         break;
       }
     }
-    return result;
   }
-  public boolean delete(String id) {
-    boolean result = false;
-    Iterator<Item> iterator = this.items.iterator();
-    while (iterator.hasNext()) {
-      Item next = iterator.next();
-      if (next.getId().equals(id)) {
-        iterator.remove();
-        result = true;
+  public void delete(String id) {
+    for (int index = 0; index < this.items.size(); index++) {
+      if (this.items.get(index).getId().equals(id)) {
+        this.items.remove(index);
         break;
       }
     }
-    return result;
   }
   public List<Item> findAll() {
     return getItems();

@@ -72,11 +72,8 @@ public class MenuTracker {
     public void execute(Input input, Tracker tracker) {
       System.out.println("----------Удаление заявки--------");
       String id = input.ask("введите ID заявки, которую нужно удалить:");
-      if (tracker.delete(id)) {
-        System.out.println("Заявка удалена");
-        return;
-      }
-      System.out.println("нет заявки с таким ID");
+      tracker.delete(id);
+      System.out.println("Заявка удалена");
     }
   }
   private class FindItemById extends BaseAction {
@@ -128,10 +125,7 @@ class EditItem extends BaseAction {
     String name = input.ask("введите имя:");
     String desc = input.ask("введите описание заявки:");
     Item item = new Item(name, desc);
-    if (tracker.replace(id, item)) {
-      System.out.println(String.format("%s %s", "внесены изменения в заявку с ID ", item.getId()));
-      return;
-    }
-    System.out.println("нет заявки с таким ID");
+    tracker.replace(id, item);
+    System.out.println(String.format("%s %s", "внесены изменения в заявку с ID ", item.getId()));
   }
 }
