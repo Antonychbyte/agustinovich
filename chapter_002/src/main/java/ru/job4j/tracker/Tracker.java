@@ -1,8 +1,6 @@
 package ru.job4j.tracker;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 /**
  *class Tracker - решение задачи "2. Реализовать класс Tracker [#396]"
@@ -21,13 +19,33 @@ class Tracker {
     item.setCreated(System.currentTimeMillis());
     this.items.add(item);
   }
-  public void replace(String id, Item item) {
-    item.setId(id);
-    item.setCreated(System.currentTimeMillis());
-    this.items.set(this.position(id), item);
+  public boolean replace(String id, Item newItem) {
+    boolean result = false;
+    newItem.setId(id);
+    newItem.setCreated(System.currentTimeMillis());
+    ListIterator<Item> iterator = this.items.listIterator();
+    while (iterator.hasNext()) {
+      Item next = iterator.next();
+      if (next.getId().equals(newItem.getId())) {
+        iterator.set(newItem);
+        result = true;
+        break;
+      }
+    }
+    return result;
   }
-  public void delete(String id) {
-    this.items.remove(this.position(id));
+  public boolean delete(String id) {
+    boolean result = false;
+    Iterator<Item> iterator = this.items.iterator();
+    while (iterator.hasNext()) {
+      Item next = iterator.next();
+      if (next.getId().equals(id)) {
+        iterator.remove();
+        result = true;
+        break;
+      }
+    }
+    return result;
   }
   public List<Item> findAll() {
     return getItems();
@@ -50,16 +68,6 @@ class Tracker {
       }
     }
     return result;
-  }
-  private int position(String id) {
-    int index = 0;
-    for (Item item : this.items) {
-      if (item.getId().equals(id)) {
-        break;
-      }
-      index++;
-    }
-    return index;
   }
   private String generateId() {
     StringBuilder id = new StringBuilder();

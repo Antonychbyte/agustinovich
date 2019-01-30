@@ -38,7 +38,6 @@ public class MenuTracker {
   public void select(int key) {
     this.actions[key - 1].execute(this.input, this.tracker);
   }
-
   private class AddItem extends BaseAction {
     public AddItem(int key, String name) {
       super(key, name);
@@ -65,7 +64,6 @@ public class MenuTracker {
       }
     }
   }
-
   private class DeleteItem extends BaseAction {
     public DeleteItem(int key, String name) {
       super(key, name);
@@ -74,8 +72,11 @@ public class MenuTracker {
     public void execute(Input input, Tracker tracker) {
       System.out.println("----------Удаление заявки--------");
       String id = input.ask("введите ID заявки, которую нужно удалить:");
-      tracker.delete(id);
-      System.out.println("Заявка удалена");
+      if (tracker.delete(id)) {
+        System.out.println("Заявка удалена");
+        return;
+      }
+      System.out.println("нет заявки с таким ID");
     }
   }
   private class FindItemById extends BaseAction {
@@ -114,7 +115,6 @@ public class MenuTracker {
     public void execute(Input input, Tracker tracker) {
     }
   }
-
 }
 class EditItem extends BaseAction {
   public EditItem(int key, String name) {
@@ -128,7 +128,10 @@ class EditItem extends BaseAction {
     String name = input.ask("введите имя:");
     String desc = input.ask("введите описание заявки:");
     Item item = new Item(name, desc);
-    tracker.replace(id, item);
-    System.out.println(String.format("%s %s", "внесены изменения в заявку с ID ", item.getId()));
+    if (tracker.replace(id, item)) {
+      System.out.println(String.format("%s %s", "внесены изменения в заявку с ID ", item.getId()));
+      return;
+    }
+    System.out.println("нет заявки с таким ID");
   }
 }
