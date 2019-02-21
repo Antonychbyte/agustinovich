@@ -21,7 +21,7 @@ class Tracker {
   }
   public void replace(String id, Item newItem) {
     for (int index = 0; index < this.items.size(); index++) {
-      if(this.items.get(index).getId().equals(id)) {
+      if (this.items.get(index).getId().equals(id)) {
         this.items.set(index, newItem);
         break;
       }

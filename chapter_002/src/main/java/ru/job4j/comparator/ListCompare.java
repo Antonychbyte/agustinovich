@@ -12,7 +12,7 @@ public class ListCompare implements Comparator<String> {
     int minSize = Math.min(leftSize, rightSize);
     int result = 0;
     int index = 0;
-    while (result == 0 && index < minSize){
+    while (result == 0 && index < minSize) {
       result = Character.compare(left.charAt(index), right.charAt(index));
       index++;
     }
