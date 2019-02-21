@@ -4,20 +4,20 @@
     <artifactId>junior</artifactId>
     <packaging>pom</packaging>
     <version>2.0</version>
-     <name>junior</name>
-     <url>http://job4j.ru/</url>
+    <name>junior</name>
+    <url>http://job4j.ru/</url>
 
     <properties>
-       <maven.compiler.source>1.8</maven.compiler.source>
-       <maven.compiler.target>1.8</maven.compiler.target>
-       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-     </properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 
     <modules>
-       <module>chapter_001</module>
+        <module>chapter_001</module>
         <module>chapter_002</module>
     </modules>
-     
+
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.hamcrest/hamcrest-all -->
         <dependency>
@@ -46,11 +46,11 @@
                         <id>validate</id>
                         <phase>validate</phase>
                         <configuration>
-                             <configLocation>checkstyle.xml</configLocation>
-                             <encoding>UTF-8</encoding>
-                             <consoleOutput>true</consoleOutput>
-                             <failsOnError>true</failsOnError>
-                             <includeTestSourceDirectory>true</includeTestSourceDirectory>
+                            <configLocation>checkstyle.xml</configLocation>
+                            <encoding>UTF-8</encoding>
+                            <consoleOutput>true</consoleOutput>
+                            <failsOnError>true</failsOnError>
+                            <includeTestSourceDirectory>true</includeTestSourceDirectory>
                         </configuration>
                         <goals>
                             <goal>check</goal>
@@ -58,6 +58,25 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.2</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>report</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
-    </build> 
+    </build>
 </project>
